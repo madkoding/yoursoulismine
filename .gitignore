@@ -19,5 +19,3 @@ Thumbs.db
 
 prisma/dev.db
 *.db
-
-*.md
