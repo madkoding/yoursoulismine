@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  background-color: #050505;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 0, 0, 0.03) 2px,
+      rgba(139, 0, 0, 0.03) 4px
+    ),
+    radial-gradient(ellipse at 50% 0%, rgba(139, 0, 0, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0000 0%, #050505 50%, #0a0000 100%);
+}
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+  min-height: 100vh;
+  color: #d4afaf;
+}
+
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: #8b0000;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a0000;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b0000;
+}
+
+.dramatic-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px #8b0000,
+    0 0 20px #8b0000,
+    0 0 40px #4a0000,
+    0 0 80px #4a0000,
+    2px 2px 0 #000;
+  animation: flicker 4s infinite;
+  text-align: center;
+  display: block;
+  font-weight: 900;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+.dramatic-subtitle {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #ffcccc;
+  text-shadow: 0 0 5px rgba(139, 0, 0, 0.8);
+  text-align: center;
+  display: block;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #ffffff;
+  position: relative;
+  display: block;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #8b0000, transparent);
+}
+
+.form-container {
+  background: linear-gradient(145deg, rgba(20, 5, 5, 0.9) 0%, rgba(10, 2, 2, 0.95) 100%);
+  border: 1px solid #2a0a0a;
+  border-radius: 4px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b0000, transparent);
+}
+
+.form-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #4a0000;
+  border-left: 2px solid #4a0000;
+}
+
+.corner-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid #4a0000;
+  border-right: 2px solid #4a0000;
+}
+
+.form-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4afaf;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 700;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: linear-gradient(180deg, #0a0505 0%, #0f0808 100%);
+  border: 1px solid #2a0f0f;
+  color: #ffffff;
+  padding: 1rem 1.25rem;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #8b0000;
+  box-shadow: 
+    0 0 10px rgba(139, 0, 0, 0.3),
+    inset 0 0 20px rgba(139, 0, 0, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #8b5555;
+  font-style: italic;
+  opacity: 1;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-file {
+  width: 100%;
+  background: linear-gradient(180deg, #0a0505 0%, #0f0808 100%);
+  border: 1px solid #2a0f0f;
+  color: #d4afaf;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.form-file::file-selector-button {
+  background: linear-gradient(180deg, #4a0000 0%, #2a0000 100%);
+  border: 1px solid #6b0000;
+  color: #d4afaf;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.form-file::file-selector-button:hover {
+  background: linear-gradient(180deg, #6b0000 0%, #4a0000 100%);
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(180deg, #4a0000 0%, #2a0000 100%);
+  border: 1px solid #6b0000;
+  color: #d4afaf;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 1.25rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(180deg, #6b0000 0%, #4a0000 100%);
+  box-shadow: 
+    0 0 20px rgba(139, 0, 0, 0.5),
+    0 0 40px rgba(139, 0, 0, 0.3);
+  border-color: #8b0000;
+  color: #fff;
+}
+
+.soul-card {
+  background: linear-gradient(145deg, rgba(20, 5, 5, 0.8) 0%, rgba(10, 2, 2, 0.9) 100%);
+  border: 1px solid #2a0a0a;
+  border-radius: 4px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.soul-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #8b0000, #4a0000);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.soul-card:hover {
+  border-color: #4a0000;
+  transform: translateX(5px);
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+}
+
+.soul-card:hover::before {
+  opacity: 1;
+}
+
+.soul-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  text-align: center;
+  display: block;
+  font-weight: 700;
+}
+
+.soul-description {
+  font-size: 1.05rem;
+  color: #cccccc;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.soul-details summary {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8b0000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.soul-details summary:hover {
+  color: #c95555;
+}
+
+.soul-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.download-btn {
+  background: linear-gradient(180deg, #6b0000 0%, #4a0000 100%);
+  border: 1px solid #8b0000;
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.download-btn:hover {
+  background: linear-gradient(180deg, #8b0000 0%, #6b0000 100%);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+  border-color: #ff0000;
+  transform: translateY(-2px);
+}
+
+.soul-content {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: #0a0505;
+  border: 1px solid #2a0a0a;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  color: #a08080;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  font-family: 'Crimson Text', serif;
+  overflow-x: auto;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #4a3030;
+}
+
+.empty-state p {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.footer-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: #3a0000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.decorative-skull {
+  font-size: 2rem;
+  opacity: 0.3;
+  display: block;
+  margin-bottom: 1rem;
+}
