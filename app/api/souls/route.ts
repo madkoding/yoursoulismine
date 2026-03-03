@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { supabase } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,14 +18,21 @@ export async function POST(request: NextRequest) {
 
     const content = await file.text()
 
-    const soul = await prisma.soul.create({
-      data: {
-        name,
-        description,
-        content,
-        fileName: file.name,
-      },
-    })
+    const { data: soul, error } = await supabase
+      .from('souls')
+      .insert([
+        {
+          name,
+          description,
+          content,
+          file_name: file.name,
+        }
+      ])
+      .select()
+
+    if (error) {
+      throw error
+    }
 
     return NextResponse.redirect(new URL('/', request.url))
   } catch (error) {

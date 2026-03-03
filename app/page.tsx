@@ -1,11 +1,13 @@
-import { prisma } from '@/lib/prisma'
-
-export const dynamic = 'force-dynamic'
-
 async function getSouls() {
-  return await prisma.soul.findMany({
-    orderBy: { createdAt: 'desc' }
-  })
+  try {
+    const res = await fetch('http://localhost:3000/api/souls/all', {
+      next: { revalidate: 0 }
+    })
+    if (!res.ok) return []
+    return await res.json()
+  } catch {
+    return []
+  }
 }
 
 export default async function Home() {
@@ -91,7 +93,7 @@ export default async function Home() {
               </div>
             ) : (
               <div className="grid md:grid-cols-2 gap-6">
-                {souls.map((soul) => (
+                {souls.map((soul: any) => (
                   <article key={soul.id} className="soul-card">
                     <h3 className="soul-name text-center">{soul.name}</h3>
                     <p className="soul-description text-center">{soul.description}</p>
